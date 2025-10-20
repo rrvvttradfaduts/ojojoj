@@ -1,0 +1,327 @@
+@use '../utils' as *;
+
+/*=============================
+	11. Header
+===============================*/
+.transparent-header {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 9;
+    height: auto;
+    @media #{$md} {
+        top: 20px;
+    }
+    @media #{$xs} {
+        top: 15px;
+    }
+}
+.tg-header {
+    &__area {
+        background-color: transparent;
+        padding: 25px 0;
+        @media #{$md} {
+            padding: 0 0;
+        }
+        .tgmenu__navbar-wrap > ul > li a {
+            padding: 40px 0px;
+        }
+        &-one {
+            .tgmenu__wrap {
+                .tgmenu__nav {
+                    justify-content: space-between;
+                }
+            }
+        }
+    }
+}
+
+.tgmenu {
+    &__nav {
+        @include flexbox();
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        @media #{$md} {
+            justify-content: space-between;
+        }
+        & .logo {
+            & img {
+                max-height: 40px;
+            }
+        }
+
+        .tgmenu__action {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            .header-links {
+                font-size: 16px;
+                font-weight: 700;
+                color: var(--tg-color-white-default);
+                font-family: var(--tg-body-font-family);
+                position: relative;
+                &:after {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    width: 100%;
+                    height: 1px;
+                    background: currentColor;
+                    transform-origin: right top;
+                    transform: scale(0, 1);
+                    transition: transform 0.4s cubic-bezier(0.74, 0.72, 0.27, 0.24);
+                }
+                &:hover {
+                    &:after {
+                        transform-origin: left top;
+                        transform: scale(1, 1);
+                    }
+                }
+                @media #{$vxs} {
+                    display: none;
+                }
+            }
+            .btn {
+                padding: 15px 20px 17px 20px;
+                @media #{$xs} {
+                    font-size: 14px;
+                    min-width: auto;
+                    padding: 12px 15px 12px 15px;
+                }
+            }
+            @media #{$md} {
+                margin-left: auto;
+                margin-right: 20px;
+            }
+            @media #{$xs} {
+                margin-left: auto;
+                margin-right: 0;
+            }
+        }
+    }
+    &__navbar-wrap {
+        @include flexbox();
+        flex-grow: 1;
+        & > ul {
+            @include flexbox();
+            flex-direction: row;
+            flex-wrap: wrap;
+            padding: 0 0;
+            margin: 0 auto 0 60px;
+            @media #{$lg} {
+                margin-right: 0;
+            }
+            & > li {
+                list-style: none;
+                display: block;
+                position: relative;
+                margin-right: 40px;
+                @media #{$lg} {
+                    margin-right: 45px;
+                }
+                &:last-child {
+                    margin-right: 0;
+                }
+                & a {
+                    font-size: 16px;
+                    font-weight: 700;
+                    text-transform: capitalize;
+                    color: var(--tg-color-white-default);
+                    padding: 55px 0px;
+                    display: flex;
+                    line-height: 1;
+                    position: relative;
+                    z-index: 1;
+                    font-family: var(--tg-body-font-family);
+                    letter-spacing: -0.01em;
+                    &:after {
+                        content: "";
+                        position: absolute;
+                        left: 0;
+                        bottom: 32px;
+                        width: 100%;
+                        height: 1px;
+                        background: currentColor;
+                        transform-origin: right top;
+                        transform: scale(0, 1);
+                        transition: transform 0.4s cubic-bezier(0.74, 0.72, 0.27, 0.24);
+                    }
+                }
+                & .sub-menu {
+                    position: absolute;
+                    left: 0;
+                    top: 100%;
+                    min-width: 230px;
+                    background: var(--tg-color-smoke);
+                    margin: 0;
+                    @include transform(scale(1, 0));
+                    transform-origin: 0 0;
+                    @include transition(0.3s);
+                    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.07);
+                    border-radius: 0 0 6px 6px;
+                    padding: 18px 0;
+                    display: block;
+                    visibility: hidden;
+                    opacity: 0;
+                    z-index: 9;
+                    & .sub-menu {
+                        right: auto;
+                        left: 100%;
+                        top: 0;
+                    }
+                    & > li {
+                        margin-left: 0;
+                        text-align: left;
+                        display: block;
+                        & a {
+                            padding: 7px 15px 7px 25px;
+                            line-height: 1.45;
+                            display: block;
+                            color: var(--tg-heading-color);
+                            text-transform: capitalize;
+                        }
+                        &:hover > a,
+                        &.active > a {
+                            color: var(--tg-theme-primary);
+                        }
+                        &:hover > a {
+                            @include transform(translateX(8px));
+                        }
+                    }
+                }
+                &:hover > .sub-menu {
+                    opacity: 1;
+                    visibility: visible;
+                    transform: scale(1);
+                }
+            }
+        }& > ul {
+            & > li {
+                &.active,
+                &:hover {
+                    & a {
+                        color: var(--tg-color-white-default);
+                        &:after {
+                            transform-origin: left top;
+                            transform: scale(1, 1);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &__main-menu {
+        & li.menu-item-has-children {
+            & .dropdown-btn {
+                display: none;
+            }
+            & > a {
+                &::after {
+                    content: "\f107";
+                    font-weight: 700;
+                    font-family: var(--tg-icon-font-family);
+                    color: var(--tg-heading-color);
+                    margin-left: 4px;
+                    @include transition(.3s);
+                    line-height: 1;
+                    transform: translateY(0px);
+                }
+                &:hover {
+                    color: var(--tg-theme-primary);
+                }
+            }
+            &:hover {
+                & > a {
+                    &::after {
+                        color: var(--tg-theme-primary);
+                    }
+                }
+            }
+            &.active {
+                & > a {
+                    &::after {
+                        color: var(--tg-theme-primary);
+                    }
+                }
+            }
+        }
+    }
+
+}
+@media (max-width: 991.98px) {
+  .tgmenu__nav .tgmenu__action .sidebar-menu-wrap:hover svg {
+    color: var(--tg-color-white-default);
+  }
+}
+
+.sticky-menu {
+	position: fixed;
+	left: 0;
+	margin: auto;
+	top: 20px;
+	width: 100%;
+	z-index: 99;
+    @media #{$xs} {
+        top: 15px;
+    }
+    & .tgmenu__wrap {
+        animation: 1000ms ease-in-out 0s normal none 1 running fadeInDown;
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.07);
+        background: rgba(0, 0, 0, 0.5);
+        border: 1px solid rgba($color: #ffffff, $alpha: 0.2);
+        border-radius: 0;
+        padding: 0 12px 0 24px;
+        backdrop-filter: blur(30px);
+        @media #{$md} {
+            padding: 10px 12px 10px 24px;
+        }
+        @media #{$xs} {
+            padding: 10px 12px 10px 12px;
+        }
+    }
+    & ul li .sub-menu {
+        @include border-radius(0 0 6px 6px);
+    }
+}
+
+
+
+
+#header {
+    &-fixed-height {
+        &.active-height {
+            display: block;
+            height: 115px;
+            @media #{$md} {
+                height: 90px;
+            }
+            @media #{$xs} {
+                height: 80px;
+            }
+            &.header-fixed-height-two {
+                height: 100px;
+                @media #{$md} {
+                    height: 90px;
+                }
+                @media #{$xs} {
+                    height: 80px;
+                }
+            }
+            &.header-fixed-height-three {
+                height: 61px;
+                @media #{$lg} {
+                    height: 90px;
+                }
+                @media #{$xs} {
+                    height: 80px;
+                }
+            }
+        }
+    }
+}
+
+
+

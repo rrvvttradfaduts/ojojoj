@@ -1,0 +1,195 @@
+@use '../utils' as *;
+
+/*=============================
+    Focus
+===============================*/
+.focus-wrap1 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border: 2px solid var(--tg-border-1);
+    border-radius: 0;
+    padding: 80px;
+    @media #{$lg} {
+        padding: 40px;
+    }
+    @media #{$md} {
+        grid-template-columns: repeat(1, 1fr);
+        &:after {
+            display: none;
+        }
+        &:before {
+            display: none;
+        }
+    }
+    @media #{$xs} {
+        padding: 30px;
+    }
+}
+.focus-card {
+    $service-list-border: 3;
+    $service-twocolumn: 2;
+    --space-x: 80px;
+    --space-y: 80px;
+    padding: 0;
+    position: relative;
+    .box-img {
+        margin-bottom: 100px;
+        transition: 0.4s;
+        display: inline-block;
+        @media #{$lg} {
+            margin-bottom: 50px;
+        }
+    }
+    .box-title {
+        font-size: 32px;
+        font-weight: 800;
+        letter-spacing: -0.01em;
+        margin-top: -0.18em;
+        margin-bottom: 20px;
+        @media #{$lg} {
+            font-size: 24px;
+        }
+    }
+    .box-text {
+        font-size: 18px;
+        margin-bottom: -0.4em;
+        @media #{$xl} {
+            font-size: 16px;
+        }
+    }
+    // For 2 Column
+    &:not(:nth-last-child(-n + #{$service-twocolumn})) {
+        margin-bottom: var(--space-y);
+    }
+    &:not(:nth-child(-n + #{$service-twocolumn})) {
+        margin-top: var(--space-y);
+        &:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: calc(-1 * var(--space-y));
+            width: 100%;
+            height: 2px;
+            background: var(--tg-border-1);
+        }
+        @media #{$md} {
+            margin-top: 0;
+            margin-bottom: var(--space-y);
+            &:before {
+                display: none;
+            }
+        }
+    }
+    &:nth-child(odd) {
+        margin-right: var(--space-x);
+        &:after {
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            right: -80px;
+            font-size: 100px;
+            font-weight: 100;
+            line-height: 0.45;
+            width: 40px;
+            height: 40px;
+            mask-image: url(../img/other/plus-icon.png);
+            transform: translate(50%, 50%);
+            background: var(--tg-border-1);
+            @media #{$lg} {
+                bottom: -42px;
+                right: -40px;
+            }
+            @media #{$md} {
+                display: none;
+            }
+        }
+        @media #{$md} {
+            margin-right: 0;
+        }
+    }
+    &:nth-last-child(2) {
+        &:after {
+            display: none;
+        }
+    }
+    &:nth-child(even) {
+        margin-left: var(--space-x);
+        &:after {
+            content: '';
+            position: absolute;
+            left: calc(-1 * var(--space-x));
+            bottom: 0;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background: var(--tg-border-1);
+            @media #{$md} {
+                display: none;
+            }
+        }
+        @media #{$md} {
+            margin-left: 0;
+        }
+    }
+    @media #{$lg} {
+        --space-x: 40px;
+        --space-y: 40px;
+    }
+    @media #{$md} {
+        --space-x: 40px;
+        --space-y: 40px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+        .box-img {
+            margin-bottom: 30px;
+        }
+    }
+    @media #{$xs} {
+        --space-x: 30px;
+        --space-y: 30px;
+    }
+}
+@-webkit-keyframes breadcrumbShake {
+    10%,90% {
+        -webkit-transform: translate3d(-1px,0,0);
+        transform: translate3d(-1px,0,0)
+    }
+
+    20%,80% {
+        -webkit-transform: translate3d(2px,0,0);
+        transform: translate3d(2px,0,0)
+    }
+
+    30%,50%,70% {
+        -webkit-transform: translate3d(-4px,0,0);
+        transform: translate3d(-4px,0,0)
+    }
+
+    40%,60% {
+        -webkit-transform: translate3d(4px,0,0);
+        transform: translate3d(4px,0,0)
+    }
+}
+
+@keyframes breadcrumbShake {
+    10%,90% {
+        -webkit-transform: translate3d(-1px,0,0);
+        transform: translate3d(-1px,0,0)
+    }
+
+    20%,80% {
+        -webkit-transform: translate3d(2px,0,0);
+        transform: translate3d(2px,0,0)
+    }
+
+    30%,50%,70% {
+        -webkit-transform: translate3d(-4px,0,0);
+        transform: translate3d(-4px,0,0)
+    }
+
+    40%,60% {
+        -webkit-transform: translate3d(4px,0,0);
+        transform: translate3d(4px,0,0)
+    }
+}

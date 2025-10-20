@@ -1,0 +1,66 @@
+@use '../utils' as *;
+
+/*=============================
+	09. Section Title
+===============================*/
+.section__title {
+    & .sub-title {
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 30px;
+        margin-top: -0.1em;
+        line-height: 1;
+        color: var(--tg-theme-primary);
+        font-family: var(--tg-heading-font-family);
+        display: block;
+        &.style2 {
+            font-size: 14px;
+            font-weight: 500;
+            background: #F8D0B3;
+            padding: 7px 10px;
+            border-radius: 50px;
+            display: inline-block;
+        }
+        @media #{$md} {
+            margin-top: -0.07em;
+        }
+    }
+    & .title {
+        margin-bottom: 0;
+        font-weight: 800;
+        font-size: 3.75rem;
+        line-height: 1.166;
+        margin-top: -0.2em;
+        letter-spacing: -0.01em;
+        @media #{$ml} {
+            font-size: 2.625rem;
+        }
+        @media #{$xs} {
+            font-size: 2rem;
+            line-height: 1.05;
+        }
+        @media #{$sm} {
+            font-size: 2.375rem;
+        }
+        & br {
+            @media #{$md} {
+                display: none;
+            }
+        }
+    }
+    p {
+        margin-top: 15px;
+    }
+    &.white {
+        .sub-title {
+            color: var(--tg-color-gray-2);
+        }
+        .title {
+            color: var(--tg-color-white-default);
+        }
+    }
+    &.section__title_static {
+        position: sticky;
+        top: 150px;
+    }
+}

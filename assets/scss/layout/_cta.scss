@@ -1,0 +1,130 @@
+@use '../utils' as *;
+
+/*=============================
+    Cta area
+===============================*/
+.cta-area-1 {
+    position: relative;
+    z-index: 1;
+    .cta-bg-title {
+        position: absolute;
+        font-size: 120px;
+        letter-spacing: -0.01em;
+        font-weight: 700;
+        color: var(--tg-color-white-default);
+        line-height: 0.75;
+        text-shadow: -0.7px -0.7px 0 var(--tg-color-white-default), 0.7px 0.7px var(--tg-color-white-default);
+        &.cta-title-top {
+            top: -22px;
+            left: 0;
+        }
+        &.cta-title-bottom {
+            bottom: -5px;
+            right: 0;
+        }
+        @media #{$md} {
+            font-size: 100px;
+        }
+        @media #{$xs} {
+            font-size: 40px;
+            &.cta-title-top {
+                top: -5px;
+            }
+            &.cta-title-bottom {
+                bottom: -2px;
+            }
+        }
+        @media #{$sm} {
+            font-size: 60px;
+            &.cta-title-top {
+                top: -12px;
+            }
+            &.cta-title-bottom {
+                bottom: -5px;
+            }
+        }
+    }
+    .cta-bg-shape1 {
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+    }
+}
+.cta-wrap1 {
+    .section__title {
+        .sec-text {
+            color: var(--tg-color-smoke-2);
+            font-size: 20px;
+            margin-top: 15px;
+            margin-bottom: 35px;
+            @media #{$ml} {
+                font-size: 18px;
+            }
+            @media #{$md} {
+                font-size: 16px;
+            }
+            @media #{$xs} {
+                margin-top: 5px;
+                margin-bottom: 20px;
+            }
+        }
+    }
+}
+/*=============================
+    Cta area 2
+===============================*/
+.cta-area-2 {
+    position: relative;
+    .cta-wrap1 {
+        @media #{$ml} {
+            padding-bottom: 0;
+        }
+    }
+    .cta-bg-title {
+        position: absolute;
+        font-size: 220px;
+        letter-spacing: -0.01em;
+        font-weight: 700;
+        color: var(--tg-color-white-default);
+        line-height: 0.75;
+        text-shadow: -0.7px -0.7px 0 var(--tg-color-white-default), 0.7px 0.7px var(--tg-color-white-default);
+        &.cta-title-bottom {
+            bottom: -15px;
+            right: 0;
+        }
+        @media #{$xxl} {
+            font-size: 150px;
+        }
+        @media #{$ml} {
+            font-size: 120px;
+        }
+        @media #{$md} {
+            font-size: 100px;
+        }
+        @media #{$xs} {
+            font-size: 50px;
+            &.cta-title-bottom {
+                bottom: -5px;
+            }
+        }
+        @media #{$vxs} {
+            font-size: 40px;
+            &.cta-title-bottom {
+                bottom: -2px;
+            }
+        }
+        @media #{$sm} {
+            font-size: 60px;
+            &.cta-title-top {
+                top: -12px;
+            }
+            &.cta-title-bottom {
+                bottom: -5px;
+            }
+        }
+    }
+    .cta-bg-shape1 {
+        position: absolute;
+        inset: 0;
+    }
+}

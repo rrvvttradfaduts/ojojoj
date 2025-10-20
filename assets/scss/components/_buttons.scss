@@ -1,0 +1,304 @@
+@use '../utils' as *;
+
+/*=============================
+	02. Button style
+===============================*/
+.tg-button-wrap {
+    @include flexbox();
+    gap: 16px;
+    flex-wrap: wrap;
+    @media #{$xs} {
+        gap: 10px;
+    }
+}
+.btn {
+    user-select: none;
+    background: var(--tg-theme-primary);
+    border: medium none;
+    @include border-radius(0px);
+    color: var(--tg-body-color);
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1;
+    margin-bottom: 0;
+    padding: 22px 30px 26px 30px;
+    text-align: center;
+    text-transform: capitalize;
+    touch-action: manipulation;
+    @include transition(.3s);
+    transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.5);
+    transition-delay: 0s;
+    vertical-align: middle;
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    font-family: var(--tg-heading-font-family);
+    gap: 10px;
+    min-width: 180px;
+    justify-content: center;
+    overflow: hidden;
+    @media #{$xs} {
+        letter-spacing: 0;
+        padding: 15px 20px 15px 20px;
+    }
+    &:before {
+        content: "";
+        position: absolute;
+        left: -4em;
+        width: 4em;
+        height: 100%;
+        top: 0;
+        transition: transform .4s ease-in-out;
+        background: linear-gradient(to right, transparent 1%, rgba(255, 255, 255, 0.2) 40%,rgba(255, 255, 255, 0.2) 60% , transparent 100%);
+    }
+    &:hover,
+    &:focus,
+    &:active {
+        &:before {
+            transform: translateX(15em);
+        }
+    }
+    &:hover,
+    &:focus,
+    &:active {
+        color: var(--tg-body-color) !important;
+        background: var(--tg-theme-primary) !important;
+    }
+
+    &-two {
+        background: transparent;
+        color: var(--tg-color-white-default);
+        border: 1px solid var(--tg-color-white-default);
+        padding: 22px 30px 24px 30px;
+        @media #{$xs} {
+            padding: 14px 19px 14px 19px;
+        }
+        &:hover,
+        &:focus,
+        &:active {
+            background: var(--tg-color-white-default) !important;
+            color: var(--tg-heading-color) !important;
+        }
+    }
+    &-three {
+        background-color: transparent;
+        border: 1px solid #0c1e1b15;
+        color: var(--tg-heading-color) !important;
+        span {
+            background: var(--tg-theme-primary);
+        }
+        &:focus,
+        &:active,
+        &:hover {
+            background: var(--tg-theme-secondary) !important;
+            border-color: var(--tg-theme-secondary) !important;
+        }
+    }
+    &-four {
+        background: var(--tg-heading-color);
+        color: var(--tg-color-white-default);
+
+        span {
+            background: var(--tg-theme-primary);
+        }
+        &:focus,
+        &:active,
+        &:hover {
+            background: var(--tg-heading-color) !important;
+            color: var(--tg-color-white-default) !important;
+        }
+    }
+
+    &-five {
+        background: var(--tg-color-smoke-4);
+        color: var(--tg-theme-primary);
+        min-width: auto;
+        padding: 21px 27px 19px 27px;
+        &:before {
+            background: var(--tg-theme-primary);
+        }
+        &:focus,
+        &:active,
+        &:hover {
+            background: var(--tg-color-smoke-4);
+            color: var(--tg-color-white-default);
+        }
+    }
+    &-six {
+        background: var(--tg-theme-secondary);
+        color: var(--tg-heading-color);
+        &:hover {
+            background: var(--tg-theme-secondary) !important;
+            color: var(--tg-heading-color) !important;
+        }
+        span {
+            background: var(--tg-color-white-default);
+        }
+    }
+    &-seven {
+        background: var(--tg-color-white-default);
+        color: var(--tg-heading-color);
+        &:hover {
+            background: var(--tg-color-white-default) !important;
+            color: var(--tg-heading-color) !important;
+        }
+        span {
+            background: var(--tg-theme-secondary);
+        }
+    }
+    &.w-100 {
+        justify-content: center;
+    }
+}
+.icon-btn {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    background: var(--tg-color-white-default);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.4s;
+    &:hover {
+        background: var(--tg-theme-primary);
+        color: var(--tg-color-white-default);
+    }
+}
+.link-btn {
+    font-weight: 600;
+    position: relative;
+    &:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 1px;
+        width: 0;
+        background: var(--tg-theme-primary);
+        transition: 0.4s;
+    }
+    &:hover {
+        &:after {
+            width: 100%;
+        }
+    }
+}
+
+/*Social Area**************/
+.social-links {
+    .list-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        a {
+            border-radius: 5px;
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background: var(--tg-border-2);
+            font-size: 16px;
+            transition: 0.4s;
+            &:hover {
+                background: var(--tg-theme-primary);
+                color: var(--tg-color-white-default);
+            }
+        }
+    }
+    &.style2 {
+        .list-wrap {
+            gap: 10px;
+            a {
+                border-radius: 50%;
+                background: var(--tg-color-smoke);
+                color: var(--tg-heading-color);
+                font-size: 15px;
+                &:hover {
+                    background: var(--tg-theme-primary);
+                    color: var(--tg-color-white-default);
+                }
+            }
+        }
+    }
+    &.style3 {
+        .list-wrap {
+            gap: 10px;
+            a {
+                background: var(--tg-color-gray-6);
+                color: var(--tg-color-white-default);
+                font-size: 16px;
+                width: 45px;
+                height: 45px;
+                line-height: 45px;
+                &:hover {
+                    background: var(--tg-theme-primary);
+                    color: var(--tg-color-white-default);
+                }
+            }
+        }
+    }
+}
+
+/* From Uiverse.io by MuhammadHasann */
+.mybutton {
+    cursor: pointer;
+    color: red;
+    padding: 12px 28px;
+    margin: 1em;
+    position: relative;
+    min-width: 12em;
+    background: #ddd;
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--c);
+    text-align: center;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    letter-spacing: 0.1em;
+    border:0;
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 1;
+    transition: 0.5s;
+}
+
+.mybutton span {
+    position: absolute;
+    width: 25%;
+    height: 100%;
+    background-color: rgb(241, 102, 9);
+    transform: translateY(150%);
+    border-radius: 50%;
+    left: calc((var(--n) - 1) * 25%);
+    transition: 0.5s;
+    transition-delay: calc((var(--n) - 1) * 0.1s);
+    z-index: -1;
+}
+
+.mybutton:hover {
+  color: black;
+}
+
+.mybutton:hover span {
+  transform: translateY(0) scale(2);
+}
+
+.mybutton span:nth-child(1) {
+  --n: 1;
+}
+
+.mybutton span:nth-child(2) {
+  --n: 2;
+}
+
+.mybutton span:nth-child(3) {
+  --n: 3;
+}
+
+.mybutton span:nth-child(4) {
+  --n: 4;
+}

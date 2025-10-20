@@ -1,0 +1,57 @@
+@use '../utils' as *;
+
+/*=============================
+    04. Background color
+===============================*/
+.gray-bg {
+	background: var(--tg-color-gray-1);
+}
+.smoke-bg {
+	background: var(--tg-color-smoke);
+}
+.smoke5-bg {
+	background: var(--tg-color-smoke-5);
+}
+.smoke7-bg {
+	background: var(--tg-color-smoke-7);
+}
+.smoke3-bg {
+	background: var(--tg-color-smoke-3);
+}
+.white-bg {
+	background: var(--tg-color-white-default);
+}
+.title-bg {
+	background: var(--tg-heading-color);
+}
+.black1-bg {
+	background: var(--tg-color-black-1);
+}
+.black2-bg {
+	background: var(--tg-color-black-2);
+}
+.dark-bg {
+	background: var(--tg-color-dark);
+}
+.dark-theme-bg {
+	background: var(--tg-color-dark-theme);
+}
+.theme-bg {
+	background: var(--tg-theme-primary);
+}
+.heading-bg {
+	background: var(--tg-heading-color);
+}
+
+/*=============================
+    Background Shape
+===============================*/
+.bg-parralax {
+	background-attachment: fixed;
+}
+.bg-cover {
+	background-size: cover;
+}
+.bg-mask {
+	mask-size: cover;
+}

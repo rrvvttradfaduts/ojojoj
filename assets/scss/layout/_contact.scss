@@ -1,0 +1,26 @@
+@use '../utils' as *;
+
+.contact {
+    &-wrapper {
+        padding: 40px;
+        @media #{$xs} {
+            padding: 25px;
+        }
+        & .title {
+            font-size: 32px;
+            margin: 0 0 20px;
+            @media #{$xs} {
+                font-size: 28px;
+            }
+        }
+        & input,
+        & textarea {
+            display: block;
+            margin: 0 0 15px;
+        }
+        & .btn {
+            padding: 17px 40px;
+            min-width: auto;
+        }
+    }
+}

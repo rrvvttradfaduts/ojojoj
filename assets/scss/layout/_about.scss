@@ -1,0 +1,98 @@
+@use '../utils' as *;
+
+/*=============================
+    About Area
+===============================*/
+.about-wrap1 {
+    .section__title .title {
+        font-size: 2.5rem;
+        font-weight: 800;
+        letter-spacing: -0.01em;
+        line-height: 1.25em;
+        @media #{$ml} {
+            font-size: 2.25rem;
+        }
+        @media #{$xs} {
+            font-size: 1.5rem;
+        }
+    }
+    .counter-wrap {
+        display: flex;
+        @media #{$xs} {
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        .counter-card {
+            &:not(:last-child) {
+                border-right: 2px solid var(--tg-border-1);
+                padding-right: 40px;
+                margin-right: 40px;
+                @media #{$xs} {
+                    border-right: 0;
+                    margin-right: 0;
+                    padding-right: 0;
+                }
+            }
+            &:last-child {
+                .box-text {
+                    max-width: 188px;
+                    @media #{$xs} {
+                        max-width: none;
+                    }
+                }
+            }
+        }
+    }
+}
+.counter-card {
+    .box-title {
+        font-size: 80px;
+        font-weight: 800;
+        color: var(--tg-theme-primary);
+        margin-bottom: 12px;
+        margin-top: -0.2em;
+        @media #{$ml} {
+            font-size: 60px;
+        }
+        @media #{$lg} {
+            font-size: 48px;
+        }
+        @media #{$xs} {
+            font-size: 40px;
+        }
+    }
+    .box-text {
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--tg-body-color);
+        line-height: 1.5em;
+        letter-spacing: -0.01em;
+        margin-bottom: -0.3em;
+        max-width: 270px;
+        @media #{$xs} {
+            max-width: none;
+        }
+    }
+}
+.img-box1 {
+    .img1 {
+        display: inline-block;
+    }
+}
+.about-wrap2 {
+    margin-right: 70px;
+    @media #{$ml} {
+        margin-right: 30px;
+    }
+    @media #{$lg} {
+        margin-right: 0;
+    }
+    .sec-text {
+        font-size: 18px;
+        margin-top: 30px;
+        @media #{$ml} {
+            font-size: 16px;
+            margin-top: 15px;
+        }
+    }
+}
